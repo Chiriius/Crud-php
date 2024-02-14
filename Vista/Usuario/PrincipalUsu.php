@@ -22,7 +22,7 @@
         echo "<th>".$data["USU_NOMBRES"]. "</th>";
         echo "<th>".$data["USU_APELLIDOS"]. "</th>";
         echo "<th>".$data["USU_EMAIL"]. "</th>";
-        echo "<td><a href='?controlador=usuario&accion=editar&id=$id' class='btn btn-primary m-3'>Editar</a>  | <a href='?controlador=usuario&accion=eliminar&id=$id' class='btn btn-primary m-3'>Eliminar</a> </td>";
+        echo "<td><a href='?controlador=usuario&accion=editar&id=$id' class='btn btn-primary m-3'>Editar</a>  |  <button class= 'btn btn-primary name='usuarios' mt-3' data-name='usuarios'  data-id='$id' onclick='confirmarEliminar()'>Eliminar</button>";
         echo "</tr>";
     }
     ?>

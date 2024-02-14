@@ -14,7 +14,8 @@
                                     <label for="exampleInputPassword1" class="form-label">Codigo</label>
                                     <input type="text" class="form-control" id="codigos" name="codigos" >
                                 </div>
-                                <button type="submit" class="btn btn-primary mt-4" onclick="registrarPrograma()">Registrar</button>    
+                                <button type="submit" class="btn btn-primary mt-4" onclick="registrarPrograma()">Registrar</button> 
+                               
                             </form>
                         </div>
                     </div>

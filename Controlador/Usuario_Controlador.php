@@ -24,6 +24,7 @@ class usuario_controlador{
             $datos ['password']=$password;
             $datos ['telefono']=$telefono;
             $datos ['fecha_nac']=$fecha_nac;
+            
             $res= Usuario_Modelo :: verificarEmail($email);
             if (is_bool($res)){
             if ( $nombres != ''or $apellidos !=''or $email!=''or $password ='' or $telefono != '' or $fecha_nac !=''){
@@ -49,7 +50,11 @@ class usuario_controlador{
     public function editar(){}
 
     public function eliminar(){
-       
+         $id = $_GET['id'];
+        $res= Usuario_Modelo :: eliminar($id);
+        if($res>0){
+            header('location: ?controlador=usuario&accion=principal');
+        }
        
 
         

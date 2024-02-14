@@ -36,13 +36,7 @@
 
 <body>
     <div class="container-fluid position-relative bg-white d-flex p-0">
-        <!-- Spinner Start -->
-        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-                <span class="sr-only">Loading...</span>
-            </div>
-        </div>
-        <!-- Spinner End -->
+        
 
 
         <!-- Sidebar Start -->
@@ -62,7 +56,7 @@
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="/AppMVCC" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Inicio</a>
+                    <a href="/CRUD-PHP-MAIN" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Inicio</a>
                     
                     <a href="?controlador=usuario&accion=principal" class="nav-item nav-link"><i class="fa fa-th me-2"></i>usuario</a>
                     <a href="?controlador=programa&accion=principal" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Programa</a>

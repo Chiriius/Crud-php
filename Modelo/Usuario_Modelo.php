@@ -3,12 +3,13 @@ class Usuario_Modelo {
     public static function registar($data){
         $i = new conexion();
         $con = $i->getConexion();
+         $uid= uniqid();
       
         $sql = "INSERT INTO t_usuario(USU_UID, USU_NOMBRES, USU_APELLIDOS, USU_EMAIL, USU_PASSWORD,USU_TELEFONO,USU_FCH_NAC)
         VALUES (?,?,?,?,?,?,?)";
         $st = $con->prepare($sql);
         
-        $uid= uniqid();
+       
         $p = array(
 
             $uid,$data['nombres'], $data['apellidos'],$data['email'],sha1($data['password']) , $data['telefono'], $data['fecha_nac'] 
