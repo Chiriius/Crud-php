@@ -71,3 +71,50 @@ let registrarPrograma = async () => {
   });
   $("#frm")[0].reset();
 };
+
+
+let logear = async() => {
+  let formUrl = "?controlador=inicio&accion=logear";
+  fd = new FormData();
+  fd.append("usuario", document.getElementById("usuario").value);
+  fd.append("contraseña", document.getElementById("contraseña").value);
+  
+  let respuesta = await fetch(formUrl, {
+    method: "post",
+    body: fd,
+  });
+  let info = await respuesta.json();
+  console.log(info);
+
+  Swal.fire({
+    icon: info.icono,
+    title: info.mensaje,
+    timer: 2000,
+  });
+
+
+}
+
+let editarUsuario = async () => {
+  let formUrl = "?controlador=usuario&accion=editar";
+  fd = new FormData();
+  fd.append("nombres", document.getElementById("nombres").value);
+  fd.append("apellidos", document.getElementById("apellidos").value);
+  fd.append("email", document.getElementById("email").value);
+  fd.append("telefono", document.getElementById("telefono").value);
+  fd.append("fecha_nac", document.getElementById("fecha_nac").value);
+  fd.append("uid", document.getElementById("uid").value);
+
+
+  let respuesta = await fetch(formUrl, {
+    method: "post",
+    body: fd,
+  });
+  let info = await respuesta.json();
+  Swal.fire({
+    icon: info.icono,
+    title: info.mensaje,
+    timer: 2000,
+  });
+
+};

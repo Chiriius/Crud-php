@@ -46,8 +46,31 @@ class usuario_controlador{
     }
     }
 
-    public function frmEditar(){}
-    public function editar(){}
+    public function frmEditar(){
+        $uid = $_GET["id"];
+        $this-> obj-> infoUsuario = Usuario_Modelo::buscarXUid($uid);
+        $this-> obj-> unirPagina("usuario/frmEditar");      
+
+    }
+    public function editar(){
+        if( isset($_POST['nombres'])&& isset($_POST['apellidos']) && isset($_POST['email']) && isset ($_POST['telefono']) && isset($_POST['fecha_nac']) && isset ($_POST['uid'])){
+            extract($_POST);
+          
+            $datos ['nombres']=$nombres;
+            $datos ['apellidos']=$apellidos;    
+            $datos ['email']=$email;
+            $datos ['uid']=$uid;
+            $datos ['telefono']=$telefono;
+            $datos ['fecha_nac']=$fecha_nac;
+            $res = Usuario_Modelo::actualizar($datos);
+            if ($res>0){
+                echo json_encode(array("estado"=>1, "mensaje" => "Actualizado", "icono"=>"success")) ;
+            }
+            else{
+                echo json_encode(array("estado"=>2, "mensaje" => "Error al actualizar", "icono"=>"error")) ;
+            }
+        }
+    }
 
     public function eliminar(){
          $id = $_GET['id'];

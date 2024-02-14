@@ -56,7 +56,7 @@
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="/CRUD-PHP-MAIN" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Inicio</a>
+                    <a href="/CRUD-PHP" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Inicio</a>
                     
                     <a href="?controlador=usuario&accion=principal" class="nav-item nav-link"><i class="fa fa-th me-2"></i>usuario</a>
                     <a href="?controlador=programa&accion=principal" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Programa</a>

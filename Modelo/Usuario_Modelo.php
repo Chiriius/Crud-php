@@ -18,7 +18,22 @@ class Usuario_Modelo {
 
 
     }
-    public static function actualizar(){
+    public static function actualizar($data){
+      $i = new conexion();
+      $con = $i->getConexion();
+    
+      $sql = "UPDATE t_usuario SET USU_NOMBRES = ?, USU_APELLIDOS = ?, USU_EMAIL =?,USU_TELEFONO=?,USU_FCH_NAC=?
+      WHERE USU_UID=?";
+      $st = $con->prepare($sql);
+      
+     
+      $p = array(
+
+         $data['nombres'], $data['apellidos'],$data['email'] , $data['telefono'], $data['fecha_nac'],$data['uid'] 
+      );
+       return $st->execute($p);
+       
+
         
     }
     public static function eliminar($id){
@@ -51,4 +66,14 @@ class Usuario_Modelo {
       return $st ->fetch();
 
     }
+    public static function buscarXUid($uid){
+      $i = new conexion();
+      $con = $i->getConexion();
+    $sql = "SELECT * FROM t_usuario WHERE USU_UID = ?";
+    $st = $con->prepare($sql);
+    $v = array($uid);
+    $st->execute($v);
+    return $st ->fetch();
+
+  }
 }
