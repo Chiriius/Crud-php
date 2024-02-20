@@ -18,22 +18,19 @@ class inicio_controlador{
             $datos ['contraseña']=$contraseña;
             if ( $usuario != '' || $contraseña !='' ){
                 $res = inicio_Modelo::logear($datos);
-                var_dump($res);
 
                 if ($res>0){
-                    echo json_encode(array("estado"=>1, "mensaje" => "Registrado", "icono"=>"success")) ;
+                    echo json_encode(array("estado"=>1, "mensaje" => "Datos Correctos", "icono"=>"success")) ;
+                
                 }
                 else{
-                    echo json_encode(array("estado"=>2, "mensaje" => "No Registro", "icono"=>"error")) ;
+                    echo json_encode(array("estado"=>2, "mensaje" => "Contraseña o correo incorrecto", "icono"=>"error")) ;
                 }
             }
-            else{
-                echo json_encode(array("estado"=>2, "mensaje" => "No Registro", "icono"=>"error")) ;
+            else {
+                echo json_encode(array("estado"=>2, "mensaje" => "Complete los datos.", "icono"=>"error"));
             }
         }
-        else {
-            echo json_encode(array("estado"=>2, "mensaje" => "Este correo ya existe", "icono"=>"error")) ;
-        }  
         
     }
     public function cerrarSesion(){}

@@ -48,6 +48,7 @@
                             </a>
                             <h3>Sign In</h3>
                         </div>
+                        <form action="" method="post" onsubmit="return false">
                         <div class="form-floating mb-3">
                             <input type="email" class="form-control" id="usuario" name="usuario" placeholder="name@example.com">
                             <label for="floatingInput">Email address</label>
@@ -65,6 +66,7 @@
                         </div>
                         <button type="submit" class="btn btn-primary py-3 w-100 mb-4"onclick="logear()">Sign In</button>
                         <p class="text-center mb-0">Don't have an Account? <a href="">Sign Up</a></p>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -73,6 +75,7 @@
     </div>
 
     <!-- JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="Public/https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="Public/https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="Public/lib/chart/chart.min.js"></script>
@@ -84,6 +87,7 @@
     <script src="Public/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 
     <!-- Template Javascript -->
+    
     <script src="Public/js/main.js"></script>
     <script src="Public/js/Scripts.js"></script>
 </body>

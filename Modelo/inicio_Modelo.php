@@ -3,17 +3,14 @@ class inicio_Modelo {
     public static function logear($datos){
         $i = new conexion();
         $con = $i->getConexion();
-      //  var_dump($datos);
-        
-        $sql = "SELECT USU_EMAIL,USU_PASSWORD from t_usuario WHERE USU_EMAIL= ? AND USU_PASSWORD =?";
+        $usuario = $datos["usuario"];
+        $contraseña = sha1($datos["contraseña"]);
+        $sql = "SELECT USU_EMAIL,USU_PASSWORD from t_usuario WHERE USU_EMAIL=  '$usuario' AND USU_PASSWORD = '$contraseña'";
 
         $st = $con->prepare($sql);
-        $dsad=array(
-            $datos['usuario'], sha1($datos['contraseña'] ) 
-        );
-        $st->execute( $dsad);
+        $st->execute( );
         
-         return $st->fetchAll() ;
+         return $st->fetch() ;
          
 
 

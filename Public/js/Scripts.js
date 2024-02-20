@@ -78,19 +78,27 @@ let logear = async() => {
   fd = new FormData();
   fd.append("usuario", document.getElementById("usuario").value);
   fd.append("contraseña", document.getElementById("contraseña").value);
-  
+
   let respuesta = await fetch(formUrl, {
     method: "post",
     body: fd,
   });
   let info = await respuesta.json();
   console.log(info);
+  if(info.estado == 1){
+    console.log("correcto");
+    window.location.href = `?controlador=usuario&accion=principal`;
 
-  Swal.fire({
-    icon: info.icono,
-    title: info.mensaje,
-    timer: 2000,
-  });
+  }
+  else {
+    Swal.fire({
+      icon: info.icono,
+      title: info.mensaje,
+      timer: 2000,
+     
+    });
+  }
+
 
 
 }
