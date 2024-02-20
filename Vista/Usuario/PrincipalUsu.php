@@ -22,8 +22,9 @@
         echo "<th>".$data["USU_NOMBRES"]. "</th>";
         echo "<th>".$data["USU_APELLIDOS"]. "</th>";
         echo "<th>".$data["USU_EMAIL"]. "</th>";
+        if($_SESSION['USU_ROL']== 1){
         echo "<td><a href='?controlador=usuario&accion=frmEditar&id=$id' class='btn btn-primary m-3'>Editar</a>  |  <button class= 'btn btn-primary name='usuarios' mt-3' data-name='usuarios'  data-id='$id' onclick='confirmarEliminar()'>Eliminar</button>";
-        echo "</tr>";
+        echo "</tr>";}
     }
     ?>
   </tbody>

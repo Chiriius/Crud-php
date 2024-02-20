@@ -3,6 +3,9 @@ require_once "Modelo/Usuario_Modelo.php";
 class usuario_controlador{
 
     public function __construct(){
+        if(!isset($_SESSION["USU_UID"])){
+            header("location:/CRUD-PHP");
+        }
         $this->obj = new Plantilla();
     }
     public function principal(){

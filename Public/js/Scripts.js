@@ -87,7 +87,7 @@ let logear = async() => {
   console.log(info);
   if(info.estado == 1){
     console.log("correcto");
-    window.location.href = `?controlador=usuario&accion=principal`;
+    window.location.href = `?controlador=inicio&accion=dashboard`;
 
   }
   else {
