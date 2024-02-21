@@ -16,7 +16,7 @@ class inicio_controlador{
         $this-> obj-> unirPagina("inicio/principal");       
     }
     public function frmLogin(){
-        $this-> obj-> unirPagina("inicio/frmLogin");    
+        $this-> obj-> unirPagina("inscripcion/principal");    
     }
 
     public function logear(){

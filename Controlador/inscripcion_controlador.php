@@ -1,12 +1,12 @@
 <?php
-require_once "Modelo/programa_Modelo.php";
-class programa_controlador{
+require_once "Modelo/inscripcion_Modelo.php";
+class inscripcion_controlador{
 
     public function __construct(){
         $this->obj = new Plantilla();
     }
     public function principal(){
-        $this-> obj ->programas=Programa_Modelo::listar( );
+        $this-> obj ->programas=inscripcion_Modelo::listar();
         $this-> obj-> unirPagina("programa/principalpro");        
     }
 
@@ -15,14 +15,14 @@ class programa_controlador{
     }
     public function registrar(){
        
-        if( isset($_POST['nombres'])&& isset($_POST['codigos']) ){
+        if( isset($_POST['email'])&& isset($_POST['programa']) ){
             extract($_POST);
           
-            $datos ['nombres']=$nombres;
-            $datos ['codigos']=$codigos;    
-            $res =Programa_Modelo:: verificarCodigo($codigos);
+            $datos ['email']=$email;
+            $datos ['programa']=$programa;    
+            $res =Programa_Modelo:: verificarCodigo($email);
             if(is_bool($res)){
-            if ( $nombres != ''&& $codigos !=''){
+            if ( $email != ''&& $programa !=''){
                 $res = Programa_Modelo::registar($datos);
                 if ($res>0){
                     echo json_encode(array("estado"=>1, "mensaje" => "Registrado", "icono"=>"success")) ;
@@ -41,28 +41,8 @@ class programa_controlador{
 
     }
 
-    public function frmEditar(){
-        $uid = $_GET["id"];
-        $this-> obj-> infoUsuario = programa_Modelo::buscarXUid($uid);
-        $this-> obj-> unirPagina("programa/frmEditar");
-    }
-    public function editar(){
-        if( isset($_POST['nombres'])&& isset($_POST['codigos'])  && isset ($_POST['uid'])){
-            extract($_POST);
-          
-            $datos ['nombres']=$nombres;
-            $datos ['codigos']=$codigos;    
-            $datos ['uid']=$uid;
-            
-            $res = programa_Modelo::actualizar($datos);
-            if ($res>0){
-                echo json_encode(array("estado"=>1, "mensaje" => "Actualizado", "icono"=>"success")) ;
-            }
-            else{
-                echo json_encode(array("estado"=>2, "mensaje" => "Error al actualizar", "icono"=>"error")) ;
-            }
-        }
-    }
+   
+
 
     public function eliminar(){
         $id = $_GET['id'];

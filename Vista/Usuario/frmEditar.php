@@ -29,6 +29,16 @@
                         <label for="fecha_nac" class="form-label">Fecha de nacimiento</label>
                         <input type="date" class="form-control" id="fecha_nac" name="fecha_nac" value="<?php echo $this ->infoUsuario["USU_FCH_NAC"];?>">
                     </div>
+                    
+                <div class="col-lg-6">
+                <label for="fecha_nac" class="form-label">Rol</label>
+                    <select class="form-select" id="usu_rol" name="usu_rol" aria-label="Default select example">
+                        <option selected ><?php  echo $this ->infoUsuario["USU_ROL"]; ?> </option>
+                        <option value="1">Administrador</option>
+                        <option value="2">Secretario/a</option>
+                        <option value="3">Estudiante</option>
+                    </select>
+                </div>
                     <div class="col-lg-6">
                    
                     <input type="hidden" class="form-control" id="uid" name="uid" value="<?php echo $this ->infoUsuario["USU_UID"];?>">

@@ -18,7 +18,7 @@ class usuario_controlador{
     }
     public function registrar(){
        
-        if( isset($_POST['nombres'])&& isset($_POST['apellidos']) && isset($_POST['email']) && isset ($_POST['password']) && isset ($_POST['telefono']) && isset($_POST['fecha_nac'])){
+        if( isset($_POST['nombres'])&& isset($_POST['apellidos']) && isset($_POST['email']) && isset ($_POST['password']) && isset ($_POST['telefono']) && isset($_POST['fecha_nac'])&& isset($_POST['usu_rol'])){
             extract($_POST);
           
             $datos ['nombres']=$nombres;
@@ -27,6 +27,7 @@ class usuario_controlador{
             $datos ['password']=$password;
             $datos ['telefono']=$telefono;
             $datos ['fecha_nac']=$fecha_nac;
+            $datos ['usu_rol']=$usu_rol;
             
             $res= Usuario_Modelo :: verificarEmail($email);
             if (is_bool($res)){
@@ -56,7 +57,7 @@ class usuario_controlador{
 
     }
     public function editar(){
-        if( isset($_POST['nombres'])&& isset($_POST['apellidos']) && isset($_POST['email']) && isset ($_POST['telefono']) && isset($_POST['fecha_nac']) && isset ($_POST['uid'])){
+        if( isset($_POST['nombres'])&& isset($_POST['apellidos']) && isset($_POST['email']) && isset ($_POST['telefono']) && isset($_POST['fecha_nac']) && isset($_POST['usu_rol'])  && isset ($_POST['uid'])){
             extract($_POST);
           
             $datos ['nombres']=$nombres;
@@ -65,6 +66,7 @@ class usuario_controlador{
             $datos ['uid']=$uid;
             $datos ['telefono']=$telefono;
             $datos ['fecha_nac']=$fecha_nac;
+            $datos ['usu_rol']=$usu_rol;
             $res = Usuario_Modelo::actualizar($datos);
             if ($res>0){
                 echo json_encode(array("estado"=>1, "mensaje" => "Actualizado", "icono"=>"success")) ;

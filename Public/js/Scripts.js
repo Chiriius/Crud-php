@@ -7,6 +7,7 @@ let registrarUsuario = async () => {
   fd.append("telefono", document.getElementById("telefono").value);
   fd.append("fecha_nac", document.getElementById("fecha_nac").value);
   fd.append("password", document.getElementById("password").value);
+  fd.append("usu_rol", document.getElementById("usu_rol").value);
 
   let respuesta = await fetch(formUrl, {
     method: "post",
@@ -111,8 +112,28 @@ let editarUsuario = async () => {
   fd.append("email", document.getElementById("email").value);
   fd.append("telefono", document.getElementById("telefono").value);
   fd.append("fecha_nac", document.getElementById("fecha_nac").value);
+  fd.append("usu_rol", document.getElementById("usu_rol").value);
   fd.append("uid", document.getElementById("uid").value);
 
+
+  let respuesta = await fetch(formUrl, {
+    method: "post",
+    body: fd,
+  });
+  let info = await respuesta.json();
+  Swal.fire({
+    icon: info.icono,
+    title: info.mensaje,
+    timer: 2000,
+  });
+
+};
+let editarPrograma = async () => {
+  let formUrl = "?controlador=programa&accion=editar";
+  fd = new FormData();
+  fd.append("nombres", document.getElementById("nombres").value);
+  fd.append("codigos", document.getElementById("codigos").value);
+  fd.append("uid", document.getElementById("uid").value);
 
   let respuesta = await fetch(formUrl, {
     method: "post",
