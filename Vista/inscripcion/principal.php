@@ -13,6 +13,11 @@
                         <option value="3"></option>
                     </select>
                 </div>
+<div class="col-lg-6">
+    <label for="apellidos" class="form-label">Identificacion del estudiante</label>
+    <input type="text" class="form-control" id="idEstu" name="idEstu"
+        placeholder="CC">
+</div>
 <a href="?controlador=inscripcion&accion=registrar" class="btn btn-primary m-3">Inscribir</a>
 <h3>Inscripciones recientes</h3>
 <table class="table table-dark table-striped-columns">

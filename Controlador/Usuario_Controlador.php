@@ -87,6 +87,13 @@ class usuario_controlador{
 
         
     }
+    public function reportePDF(){
+        $rol = $_POST['rol'];
+        $com = $rol != 4 ? "WHERE USU_ROL= $rol" : "";
+        $allUsers =Usuario_Modelo::listar($com);
+        require_once "Vista/Usuario/reporte.php";
+
+    }
 
     public function buscar(){}
 

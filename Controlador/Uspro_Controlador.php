@@ -1,4 +1,7 @@
 <?php
+
+require_once "Modelo/programa_Modelo";
+require_once "Modelo/Usuario_Modelo";
 class Uspro_Controlador{
 
     public function __construct(){
