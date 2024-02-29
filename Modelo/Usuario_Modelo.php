@@ -59,7 +59,7 @@ class Usuario_Modelo {
     public static function verificarEmail($email){
         $i = new conexion();
         $con = $i->getConexion();
-      $sql = "SELECT USU_EMAIL FROM t_usuario WHERE USU_EMAIL = ?";
+      $sql = "SELECT * FROM t_usuario WHERE USU_EMAIL = ?";
       $st = $con->prepare($sql);
       $v = array($email);
       $st->execute($v);

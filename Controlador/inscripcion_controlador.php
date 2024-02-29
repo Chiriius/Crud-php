@@ -1,4 +1,6 @@
 <?php
+require_once "Modelo/programa_Modelo.php";
+require_once "Modelo/Usuario_Modelo.php";
 require_once "Modelo/inscripcion_Modelo.php";
 class inscripcion_controlador{
 
@@ -6,8 +8,8 @@ class inscripcion_controlador{
         $this->obj = new Plantilla();
     }
     public function principal(){
-        $this-> obj ->programas=inscripcion_Modelo::listar();
-        $this-> obj-> unirPagina("programa/principalpro");        
+        $this-> obj ->inscripciones=inscripcion_Modelo::listar( );
+        $this-> obj-> unirPagina("inscripcion/principal");      
     }
 
     public function frmRegistrar(){
@@ -15,30 +17,32 @@ class inscripcion_controlador{
     }
     public function registrar(){
        
-        if( isset($_POST['email'])&& isset($_POST['programa']) ){
+        if( isset($_POST['ins_usu_correo'])&& isset($_POST['ins_usu_codigo']) ){
             extract($_POST);
           
-            $datos ['email']=$email;
-            $datos ['programa']=$programa;    
-            $res =Programa_Modelo:: verificarCodigo($email);
-            if(is_bool($res)){
-            if ( $email != ''&& $programa !=''){
-                $res = Programa_Modelo::registar($datos);
+            $datos ['ins_usu_correo']=$ins_usu_correo;
+            $datos ['ins_usu_codigo']=$ins_usu_codigo;    
+            $datos ['USPRO_FCH_INS']=$USPRO_FCH_INS;    
+            $res =Usuario_Modelo:: verificarEmail($ins_usu_correo);
+            $res1 =Programa_Modelo:: verificarCodigo($ins_usu_codigo);
+             if(!is_array($res)){
+                echo json_encode(array("estado"=>2, "mensaje" => "Usuario no existente", "icono"=>"error")) ;
+             }
+             elseif (!is_array($res1)){
+                echo json_encode(array("estado"=>2, "mensaje" => "Programa no existente", "icono"=>"error")) ;
+             }
+             else{
+                $res = inscripcion_Modelo::registar($res["USU_ID"],$res1["proCod"],$USPRO_FCH_INS);
                 if ($res>0){
-                    echo json_encode(array("estado"=>1, "mensaje" => "Registrado", "icono"=>"success")) ;
+                    echo json_encode(array("estado"=>1, "mensaje" => "Inscrito Correctamente", "icono"=>"success")) ;
                 }
                 else{
-                    echo json_encode(array("estado"=>2, "mensaje" => "No Registro", "icono"=>"error")) ;
+                    echo json_encode(array("estado"=>2, "mensaje" => "No Inscrito", "icono"=>"error")) ;
                 }
-            }
-            else{
-                echo json_encode(array("estado"=>2, "mensaje" => "No Registro", "icono"=>"error")) ;
-            }
-        } else { 
-            echo json_encode(array("estado"=>2, "mensaje" => "Ya existe este codigo", "icono"=>"error")) ;
+             }
+          
         }  
-    }
-
+    
     }
 
    

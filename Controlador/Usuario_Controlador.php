@@ -78,7 +78,7 @@ class usuario_controlador{
     }
 
     public function eliminar(){
-         $id = $_GET['id'];
+        $id = $_GET['id'];
         $res= Usuario_Modelo :: eliminar($id);
         if($res>0){
             header('location: ?controlador=usuario&accion=principal');

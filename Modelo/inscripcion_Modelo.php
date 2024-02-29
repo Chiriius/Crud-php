@@ -1,7 +1,7 @@
 <?php
 
 class inscripcion_Modelo {
-    public static function registar($data){
+    public static function registar($usuid,$proCod,$fecha){
         $i = new conexion();
         $con = $i->getConexion();
       
@@ -11,50 +11,25 @@ class inscripcion_Modelo {
         
         $uid= uniqid();
         $p = array(
-
-            $data['nombres'], $data['codigos'],$uid,
+          $uid,
+          $usuid,
+          $proCod,
+          $fecha
+           
         );
          return $st->execute($p);
 
 
     }
-   
-    public static function eliminar($id){
+    
+    public static function listar (){
       $i = new conexion();
       $con = $i->getConexion();
-    $sql = "DELETE FROM t_us_pro WHERE proUid = ?";
+    $sql = "SELECT * FROM t_us_pro";
     $st = $con->prepare($sql);
-    $v= array($id);
-   return $st->execute($v);
-        
-    }
-    public static function listar(){
-        $i = new conexion();
-        $con = $i->getConexion();
-      $sql = "SELECT * FROM t_us_pro";
-      $st = $con->prepare($sql);
-      $st->execute();
-      return $st ->fetchAll();
-        
-    }
-    public static function verificarEmail($email){
-        $i = new conexion();
-        $con = $i->getConexion();
-      $sql = "SELECT USU_EMAIL FROM t_us_pro WHERE USU_EMAIL = ?";
-      $st = $con->prepare($sql);
-      $v = array($email);
-      $st->execute($v);
-      return $st ->fetch();
-
-    }
-    public static function buscarXUid($uid){
-      $i = new conexion();
-      $con = $i->getConexion();
-    $sql = "SELECT * FROM t_programa WHERE proUid = ?";
-    $st = $con->prepare($sql);
-    $v = array($uid);
-    $st->execute($v);
-    return $st ->fetch();
+    $st->execute();
+    return $st ->fetchAll();
+      
+  }
 
   }
-}
