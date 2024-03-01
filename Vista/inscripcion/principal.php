@@ -23,8 +23,10 @@
 <table class="table table-dark table-striped-columns">
     <thead>
         <tr>
-            <th scope="row">Id del usuario</th>
+            <th scope="row">Id del estudiante</th>
+            <th scope="row">Nombre del estudiante</th>
             <th scope="row">Codigo del programa</th>
+            <th scope="row">Nombre del programa</th>
             <th scope="row">Fecha de la inscripcion</th>
             <th></th>
 
@@ -37,9 +39,14 @@
            $id = $data["USPRO_UID"];
             echo "<tr>";
            echo "<th>" . $data["USPRO_USU_ID"] . "</th>";
+           echo "<th>".$data["USU_NOMBRES"]. "</th>";
             echo "<th>" . $data["USPRO_PRO_ID"] . "</th>";
+            echo "<th>" . $data["proNombre"] . "</th>";
            echo "<th>" . $data["USPRO_FCH_INS"] . "</th>";
-           echo "<th></th>";
+           if($_SESSION['USU_ROL']== 1){
+            echo "<td><a href='?controlador=inscripcion&accion=frmEditar&id=$id' class='btn btn-primary m-3'>Editar</a>  |  <button class= 'btn btn-primary name='inscripcion' mt-3' data-name='inscripcion'  data-id='$id' onclick='confirmarEliminar()'>Eliminar</button>";
+            echo "</tr>";}
+           
 
      }
         ?>

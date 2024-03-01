@@ -74,7 +74,7 @@
                     
                     <a href="?controlador=usuario&accion=principal" class="nav-item nav-link"><i class="fa fa-th me-2"></i>usuario</a>
                     <a href="?controlador=programa&accion=principal" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Programa</a>
-                    <a href="?controlador=inicio&accion=frmLogin" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Inscripcion</a>
+                    <a href="?controlador=inscripcion&accion=principal" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Inscripcion</a>
                     
                 </div>
             </nav>

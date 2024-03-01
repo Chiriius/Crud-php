@@ -8,9 +8,10 @@ class inscripcion_controlador{
         $this->obj = new Plantilla();
     }
     public function principal(){
-        $this-> obj ->inscripciones=inscripcion_Modelo::listar( );
+        $this-> obj -> inscripciones=inscripcion_Modelo::listar( );
         $this-> obj-> unirPagina("inscripcion/principal");      
     }
+   
 
     public function frmRegistrar(){
         $this-> obj-> unirPagina("programa/frmRegistrar");    
@@ -50,7 +51,7 @@ class inscripcion_controlador{
 
     public function eliminar(){
         $id = $_GET['id'];
-        $res= Programa_Modelo :: eliminar($id);
+        $res= inscripcion_Modelo :: eliminar($id);
         if($res>0){
             header('location: ?controlador=programa&accion=principal');
         }

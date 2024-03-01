@@ -25,7 +25,7 @@ class inscripcion_Modelo {
     public static function listar (){
       $i = new conexion();
       $con = $i->getConexion();
-    $sql = "SELECT * FROM t_us_pro INNER JOIN t_usuario ON USU_UID = USPRO_USU_ID INNER JOIN t_programa ON proCod = USPRO_PRO_ID ";
+    $sql = "SELECT * FROM t_us_pro INNER JOIN t_usuario ON USU_ID = USPRO_USU_ID INNER JOIN t_programa ON proCod = USPRO_PRO_ID ";
     $st = $con->prepare($sql);
     $st->execute();
     return $st ->fetchAll();
