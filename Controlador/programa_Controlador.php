@@ -1,6 +1,6 @@
 <?php
 require_once "Modelo/programa_Modelo.php";
-class programa_controlador{
+class Programa_controlador{
 
     public function __construct(){
         $this->obj = new Plantilla();

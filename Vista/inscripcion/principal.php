@@ -2,7 +2,6 @@
     <div class="row">
         <div class="col-5 p-4 me-5 ">
             <h3>Inscripcion de Usuarios</h3>
-            <?php print_r($programas); ?>
             <form method="POST" action="?controlador=inscripcion&accion=registrar" id="frm" onsubmit="return false;">
                 <div class="col-lg-12 ">
                     <label for="apellidos" class="form-label">Email</label>
@@ -12,8 +11,15 @@
                 <br>
                 <div class="col-lg-12">
                     <label for="apellidos" class="form-label">Codigo programa</label>
-                    <input type="text" class="form-control" id="ins_usu_codigo" name="ins_usu_codigo"
-                        placeholder="Codigo del programa">
+                    <select class="form-select" name="ins_usu_codigo" id="ins_usu_codigo">
+                    <option selected>Seleccione un programa</option>
+                    <?php foreach ($this->programas as $programa): ?>
+                        <option value="<?php echo $programa['proCod']; ?>">
+                            <?php echo $programa['proNombre']; ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+                   
                 </div>
                 <br>
 
@@ -28,21 +34,21 @@
             <h3>Filtro de estudiantes por programas</h3>
             <div class="mb-3">
                 <label for="" class="form-label">Programa</label>
-                <select class="form-select form-select-lg" name="programa" id="programa">
+                <select class="form-select" name="programa" id="programa">
                     <option selected>Seleccione un programa</option>
-                    <?php foreach ($this->$programas as $programa): ?>
+                    <?php foreach ($this->programas as $programa): ?>
                         <option value="<?php echo $programa['proCod']; ?>">
                             <?php echo $programa['proNombre']; ?>
                         </option>
                     <?php endforeach; ?>
                 </select>
+                <button type="submit" class="btn btn-primary m-4" onclick="ins()">Filtrar</button>
 
             </div>
 
         </div>
 
     </div>
-
 
     < </div>
         <div class="col-12 text-center align-items-center ">

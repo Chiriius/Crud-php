@@ -1,5 +1,5 @@
 <?php
-class Programa_Modelo
+class programa_Modelo
 {
   public static function registar($data)
   {

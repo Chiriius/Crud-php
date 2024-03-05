@@ -91,7 +91,7 @@ class usuario_controlador{
         $rol = $_POST['rol'];
         $com = $rol != 4 ? "WHERE USU_ROL= $rol" : "";
         $allUsers =Usuario_Modelo::listar($com);
-        require_once "Vista/Usuario/reporte.php";
+        require_once "Vista/usuario/reporte.php";
 
     }
 

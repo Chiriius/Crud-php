@@ -22,7 +22,7 @@
         echo "<th>".$data["proNombre"]. "</th>";
         echo "<th>".$data["proCod"]. "</th>";
         if($_SESSION['USU_ROL']== 1){
-        echo "<td><a href='?controlador=programa&accion=frmEditar&id=$id' class='btn btn-primary m-3'>Editar</a> | <button class= 'btn btn-primary  mt-3' data-name='programa' data-id='$id' onclick='confirmarEliminar()'     id='programa'>Eliminar</button>";
+        echo "<td><a href='?controlador=programa&accion=frmEditar&id=$id' class='btn btn-primary m-3'>Editar</a> | <button class= 'btn btn-primary  mt-3' data-name='programa' data-id='$id' onclick='confirmarEliminar()'    >Eliminar</button>";
         echo "</tr>";}
     }
     ?>
