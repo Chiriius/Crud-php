@@ -8,8 +8,8 @@ let registrarUsuario = async () => {
   fd.append("fecha_nac", document.getElementById("fecha_nac").value);
   fd.append("password", document.getElementById("password").value);
   fd.append("usu_rol", document.getElementById("usu_rol").value);
-console.log(fd)
-console.error();
+  console.log(fd);
+  console.error();
   let respuesta = await fetch(formUrl, {
     method: "post",
     body: fd,
@@ -72,8 +72,7 @@ let registrarPrograma = async () => {
   $("#frm")[0].reset();
 };
 
-
-let logear = async() => {
+let logear = async () => {
   let formUrl = "?controlador=inicio&accion=logear";
   fd = new FormData();
   fd.append("usuario", document.getElementById("usuario").value);
@@ -85,23 +84,17 @@ let logear = async() => {
   });
   let info = await respuesta.json();
   console.log(info);
-  if(info.estado == 1){
+  if (info.estado == 1) {
     console.log("correcto");
     window.location.href = `?controlador=inicio&accion=dashboard`;
-
-  }
-  else {
+  } else {
     Swal.fire({
       icon: info.icono,
       title: info.mensaje,
       timer: 2000,
-     
     });
   }
-
-
-
-}
+};
 
 let editarUsuario = async () => {
   let formUrl = "?controlador=usuario&accion=editar";
@@ -114,7 +107,6 @@ let editarUsuario = async () => {
   fd.append("usu_rol", document.getElementById("usu_rol").value);
   fd.append("uid", document.getElementById("uid").value);
 
-
   let respuesta = await fetch(formUrl, {
     method: "post",
     body: fd,
@@ -125,7 +117,6 @@ let editarUsuario = async () => {
     title: info.mensaje,
     timer: 2000,
   });
-
 };
 let editarPrograma = async () => {
   let formUrl = "?controlador=programa&accion=editar";
@@ -144,42 +135,43 @@ let editarPrograma = async () => {
     title: info.mensaje,
     timer: 2000,
   });
-
 };
 
-let ins = async()=>{
+let ins = async () => {
   console.log("si inicio");
   let ins_usu_correo = document.getElementById("ins_usu_correo").value;
   let ins_usu_codigo = document.getElementById("ins_usu_codigo").value;
-  if(ins_usu_codigo.trim()=="" || ins_usu_correo.trim()==""){
+  if (ins_usu_codigo.trim() == "" || ins_usu_correo.trim() == "") {
     Swal.fire({
       icon: "error",
       title: "Ingrese todos los campos",
       timer: 2000,
     });
-   
-  }
-  else{
-    let url ='?controlador=inscripcion&accion=registrar';
-    fd = new FormData()
-    fd.append("ins_usu_correo", document.getElementById("ins_usu_correo").value);
-    fd.append("ins_usu_codigo", document.getElementById("ins_usu_codigo").value);
+  } else {
+    let url = "?controlador=inscripcion&accion=registrar";
+    fd = new FormData();
+    fd.append(
+      "ins_usu_correo",
+      document.getElementById("ins_usu_correo").value
+    );
+    fd.append(
+      "ins_usu_codigo",
+      document.getElementById("ins_usu_codigo").value
+    );
     fd.append("USPRO_FCH_INS", document.getElementById("USPRO_FCH_INS").value);
-    
-    let res = await fetch(url,{
-      method:"post",
-      body:fd
-    })
-    let info = await res.json()
+
+    let res = await fetch(url, {
+      method: "post",
+      body: fd,
+    });
+    let info = await res.json();
     Swal.fire({
       title: info.mensaje,
       icon: info.icon,
-    }).then((result) =>{
-      if(result.isConfirmed){
+    }).then((result) => {
+      if (result.isConfirmed) {
         window.location.href = `?controlador=inscripcion&accion=principal`;
       }
-    })
-    
-    
+    });
   }
-}
+};
