@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,7 +15,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
+
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
@@ -35,7 +34,7 @@
 <body>
     <div class="container-fluid position-relative bg-white d-flex p-0">
         <!-- Spinner Start -->
-  
+
 
         <!-- Sign In Start -->
         <div class="container-fluid">
@@ -49,23 +48,26 @@
                             <h3>Sign In</h3>
                         </div>
                         <form action="" method="post" onsubmit="return false">
-                        <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="usuario" name="usuario" placeholder="name@example.com">
-                            <label for="floatingInput">Email address</label>
-                        </div>
-                        <div class="form-floating mb-4">
-                            <input type="password" class="form-control" id="contraseña" name="contraseña"placeholder="Password">
-                            <label for="floatingPassword">Password</label>
-                        </div>
-                        <div class="d-flex align-items-center justify-content-between mb-4">
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                            <div class="form-floating mb-3">
+                                <input type="email" class="form-control" id="usuario" name="usuario"
+                                    placeholder="name@example.com">
+                                <label for="floatingInput">Email address</label>
                             </div>
-                            <a href="">Forgot Password</a>
-                        </div>
-                        <button type="submit" class="btn btn-primary py-3 w-100 mb-4"onclick="logear()">Sign In</button>
-                        <p class="text-center mb-0">Don't have an Account? <a href="">Sign Up</a></p>
+                            <div class="form-floating mb-4">
+                                <input type="password" class="form-control" id="contraseña" name="contraseña"
+                                    placeholder="Password">
+                                <label for="floatingPassword">Password</label>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between mb-4">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                                </div>
+                                <a href="">Forgot Password</a>
+                            </div>
+                            <button type="submit" class="btn btn-primary py-3 w-100 mb-4" onclick="logear()">Sign
+                                In</button>
+                            <p class="text-center mb-0">Don't have an Account? <a href="">Sign Up</a></p>
                         </form>
                     </div>
                 </div>
@@ -87,7 +89,7 @@
     <script src="Public/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 
     <!-- Template Javascript -->
-    
+
     <script src="Public/js/main.js"></script>
     <script src="Public/js/Scripts.js"></script>
 </body>

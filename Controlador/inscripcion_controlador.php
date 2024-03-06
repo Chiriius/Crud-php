@@ -52,14 +52,15 @@ class inscripcion_controlador
 
 
 
-    //   public function eliminar(){
-    //       $id = $_GET['id'];
-    //       $res= inscripcion_Modelo :: eliminar($id);
-    //       if($res>0){
-    //           header('location: ?controlador=programa&accion=principal');
-    //       }
-    //       
-    //   }
+    public function eliminar()
+    {
+        $id = $_GET['id'];
+        $res = inscripcion_Modelo::eliminar($id);
+        if ($res > 0) {
+            header('location: ?controlador=inscripcion&accion=principal');
+        }
+
+    }
 
     public function buscar()
     {

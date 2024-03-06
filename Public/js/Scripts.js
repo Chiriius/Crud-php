@@ -23,10 +23,7 @@ let registrarUsuario = async () => {
   $("#frm")[0].reset();
 };
 
-let confirmarEliminar = async () => {
-  const bt = document.querySelector(".btn-primary[data-id]");
-  const id = bt.getAttribute("data-id");
-  const opc = bt.getAttribute("data-name");
+let confirmarEliminar = async (id, opc) => {
   Swal.fire({
     title: "¿Estás seguro?",
     text: "No podrás revertir esto.",
@@ -48,6 +45,9 @@ let confirmarEliminar = async () => {
       }
       if (opc == "usuarios") {
         window.location.href = `?controlador=usuario&accion=eliminar&id=${id}`;
+      }
+      if (opc == "inscripciones") {
+        window.location.href = `?controlador=inscripcion&accion=eliminar&id=${id}`;
       }
     }
   });

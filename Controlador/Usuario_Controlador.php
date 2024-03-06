@@ -49,7 +49,7 @@ class usuario_controlador{
         }  
     }
     }
-
+//ss
     public function frmEditar(){
         $uid = $_GET["id"];
         $this-> obj-> infoUsuario = Usuario_Modelo::buscarXUid($uid);

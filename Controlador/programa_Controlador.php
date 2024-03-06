@@ -56,7 +56,7 @@ class Programa_controlador{
             
             $res = programa_Modelo::actualizar($datos);
             if ($res>0){
-                echo json_encode(array("estado"=>1, "mensaje" => "Actualizado", "icono"=>"success")) ;
+                echo json_encode(array("estado"=>1, "mensaje" => "Actualizadoo", "icono"=>"success")) ;
             }
             else{
                 echo json_encode(array("estado"=>2, "mensaje" => "Error al actualizar", "icono"=>"error")) ;

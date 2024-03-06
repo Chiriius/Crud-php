@@ -43,7 +43,7 @@ class inicio_controlador{
                 }
             }
             else {
-                echo json_encode(array("estado"=>2, "mensaje" => "Complete los datos.", "icono"=>"error"));
+                echo json_encode(array("estado"=>2, "mensaje" => "Complete los datos", "icono"=>"error"));
             }
         }
         

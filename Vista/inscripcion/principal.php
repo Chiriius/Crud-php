@@ -12,14 +12,14 @@
                 <div class="col-lg-12">
                     <label for="apellidos" class="form-label">Codigo programa</label>
                     <select class="form-select" name="ins_usu_codigo" id="ins_usu_codigo">
-                    <option selected>Seleccione un programa</option>
-                    <?php foreach ($this->programas as $programa): ?>
+                        <option selected>Seleccione un programa</option>
+                        <?php foreach ($this->programas as $programa): ?>
                         <option value="<?php echo $programa['proCod']; ?>">
                             <?php echo $programa['proNombre']; ?>
                         </option>
-                    <?php endforeach; ?>
-                </select>
-                   
+                        <?php endforeach; ?>
+                    </select>
+
                 </div>
                 <br>
 
@@ -37,12 +37,12 @@
                 <select class="form-select" name="programa" id="programa">
                     <option selected>Seleccione un programa</option>
                     <?php foreach ($this->programas as $programa): ?>
-                        <option value="<?php echo $programa['proCod']; ?>">
-                            <?php echo $programa['proNombre']; ?>
-                        </option>
+                    <option value="<?php echo $programa['proCod']; ?>">
+                        <?php echo $programa['proNombre']; ?>
+                    </option>
                     <?php endforeach; ?>
                 </select>
-                <button type="submit" class="btn btn-primary m-4" onclick="ins()">Filtrar</button>
+                <button type="submit" class="btn btn-primary m-4" onclick="Filtro()">Filtrar</button>
 
             </div>
 
@@ -72,6 +72,7 @@
                             <?php
                             foreach ($this->inscripciones as $data) {
                                 $id = $data["USPRO_UID"];
+                                $opc = "inscripciones";
                                 echo "<tr>";
                                 echo "<th>" . $data["USPRO_USU_ID"] . "</th>";
                                 echo "<th>" . $data["USU_NOMBRES"] . "</th>";
@@ -79,7 +80,8 @@
                                 echo "<th>" . $data["proNombre"] . "</th>";
                                 echo "<th>" . $data["USPRO_FCH_INS"] . "</th>";
                                 if ($_SESSION['USU_ROL'] == 1) {
-                                    echo "<td><a href='?controlador=inscripcion&accion=frmEditar&id=$id' class='btn btn-primary m-3'>Editar</a>  |  <button class= 'btn btn-primary name='inscripcion' mt-3' data-name='inscripcion'  data-id='$id' onclick='confirmarEliminar()'>Eliminar</button>";
+                                    echo "<td><a href='?controlador=inscripcion&accion=frmEditar&id=$id' class='btn btn-primary m-3'>Editar</a>  |   <button class='btn btn-danger mt-3 eliminar-btn' data-name='usuarios' data-id='$id'
+                onclick='confirmarEliminar(\"$id\",\"$opc\")'>Eliminar</button>";
 
                                     echo "</tr>";
                                 }
